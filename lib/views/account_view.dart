@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:speend/views/account_view.dart';
+import 'package:speend/views/loggedin_view.dart';
 import 'package:speend/views/login_view.dart';
 import 'package:speend/views/profile_view.dart';
 import 'package:speend/views/setting_view.dart';
 import 'package:speend/views/stats_view.dart';
 
-class LoggedinView extends StatefulWidget {
-  const LoggedinView({super.key});
+class Account_view extends StatefulWidget {
+  const Account_view({super.key});
 
   @override
-  State<LoggedinView> createState() => _LoggedinViewState();
+  State<Account_view> createState() => _Account_viewState();
 }
 
-class _LoggedinViewState extends State<LoggedinView> {
-  int _selectedIndex = 0;
+class _Account_viewState extends State<Account_view> {
+  int _selectedIndex = 2;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -57,7 +57,7 @@ class _LoggedinViewState extends State<LoggedinView> {
               onPressed: () async {
                 await Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginView()),
+                  MaterialPageRoute(builder: (context) => const LoggedinView()),
                 );
               },
               icon: const Icon(Icons.arrow_back_ios_new),
@@ -90,6 +90,12 @@ class _LoggedinViewState extends State<LoggedinView> {
                 textColor: Color.fromARGB(255, 224, 224, 224),
                 iconActiveColor: Color.fromARGB(255, 224, 224, 224),
                 iconColor: const Color.fromARGB(255, 121, 88, 115),
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoggedinView()));
+                },
               ),
               GButton(
                 icon: Icons.bar_chart_sharp,
@@ -110,12 +116,6 @@ class _LoggedinViewState extends State<LoggedinView> {
                 textColor: Color.fromARGB(255, 224, 224, 224),
                 iconActiveColor: Color.fromARGB(255, 224, 224, 224),
                 iconColor: const Color.fromARGB(255, 121, 88, 115),
-                onPressed: () async {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Account_view()));
-                },
               )
             ],
             selectedIndex: _selectedIndex,
@@ -168,7 +168,7 @@ class _LoggedinViewState extends State<LoggedinView> {
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Text(
-                          'Hii',
+                          'Accounts',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
