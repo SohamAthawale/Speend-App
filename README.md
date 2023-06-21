@@ -2,7 +2,7 @@
 
 A simple and intuitive budgeting app developed using Flutter for iOS and Android.
 
-![Alt text](https://ibb.co/2yDSkhH)
+![alt text](https://github.com/[SohamAthawale]/[Speend-App/assests/images/Splash.jpg?raw=true)
 
 ## Features
 
