@@ -1,8 +1,8 @@
-# Budgeting App
+#  Speend App
 
 A simple and intuitive budgeting app developed using Flutter for iOS and Android.
 
-![App Screenshot](screenshots/screenshot.png)
+![App Screenshot](assets/images/OpenView3.jpg)
 
 ## Features
 
@@ -29,3 +29,13 @@ A simple and intuitive budgeting app developed using Flutter for iOS and Android
 
    flutter pub get
 
+   flutter run
+
+### Contributing
+
+Contributions are always welcome! Please follow these steps to contribute:
+
+Fork the repository
+Create a new branch
+Make your changes
+Submit a pull request
