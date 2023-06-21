@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:speend/views/login_view.dart';
 import 'package:speend/views/profile_view.dart';
 import 'package:speend/views/setting_view.dart';
@@ -74,46 +75,91 @@ class _LoggedinViewState extends State<LoggedinView> {
       ),
       body: Scaffold(
         backgroundColor: const Color.fromARGB(255, 18, 18, 18),
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: const Color.fromARGB(255, 18, 18, 18),
-            selectedItemColor: Color.fromARGB(255, 224, 224, 224),
-            unselectedItemColor: const Color.fromARGB(255, 121, 88, 115),
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.attach_money_sharp),
-                label: 'Dashboard',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.bar_chart_sharp),
-                label: 'Statistics',
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_balance_wallet_rounded),
-                  label: 'Accounts'),
-            ]),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: GNav(
+              gap: 15,
+              tabBackgroundColor: const Color.fromARGB(255, 58, 52, 62),
+              padding: EdgeInsets.all(18),
+              tabs: [
+                GButton(
+                  icon: Icons.monetization_on,
+                  text: 'Dashboard',
+                  textColor: Color.fromARGB(255, 224, 224, 224),
+                  iconActiveColor: Color.fromARGB(255, 224, 224, 224),
+                  iconColor: const Color.fromARGB(255, 121, 88, 115),
+                ),
+                GButton(
+                  icon: Icons.bar_chart_sharp,
+                  text: 'Stats',
+                  textColor: Color.fromARGB(255, 224, 224, 224),
+                  iconActiveColor: Color.fromARGB(255, 224, 224, 224),
+                  iconColor: const Color.fromARGB(255, 121, 88, 115),
+                ),
+                GButton(
+                  icon: Icons.account_balance_wallet_rounded,
+                  text: 'Stats',
+                  textColor: Color.fromARGB(255, 224, 224, 224),
+                  iconActiveColor: Color.fromARGB(255, 224, 224, 224),
+                  iconColor: const Color.fromARGB(255, 121, 88, 115),
+                )
+              ]),
+        ),
         body: Container(
-          alignment: Alignment.bottomRight,
           color: const Color.fromARGB(255, 18, 18, 18),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(
-              width: 60.0,
-              height: 60.0,
-              child: ElevatedButton(
-                style: (ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 121, 88, 115),
-                  foregroundColor: Color.fromARGB(255, 254, 254, 254),
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(10),
-                )),
-                onPressed: () async {},
-                child: Icon(
-                  Icons.add,
-                  color: Color.fromARGB(255, 254, 254, 254),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  child: SizedBox(
+                    width: 60.0,
+                    height: 60.0,
+                    child: ElevatedButton(
+                      style: (ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 121, 88, 115),
+                        foregroundColor: Color.fromARGB(255, 254, 254, 254),
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(10),
+                      )),
+                      onPressed: () async {},
+                      child: Icon(
+                        Icons.add,
+                        color: Color.fromARGB(255, 254, 254, 254),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  height: 175,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 121, 88, 115),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Text(
+                          'Hii',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            color: Color.fromARGB(255, 254, 254, 254),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
