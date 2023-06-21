@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "840395161201",
+    "project_id": "flutter-todoapp-sa",
+    "storage_bucket": "flutter-todoapp-sa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840395161201:android:4dba7df19e2a49370465d0",
+        "android_client_info": {
+          "package_name": "com.asoham60.todoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840395161201-207n2m9joup0tdqosh0nt61jmfvnd1nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgSx7nWJxFPGGiow_AjOs3YJTfzCjDOSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840395161201-207n2m9joup0tdqosh0nt61jmfvnd1nm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840395161201-c2cja97psve2hc48pbn1rbe7c3aq5dv3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.asoham60.todoapp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840395161201:android:6817f623d656442d0465d0",
+        "android_client_info": {
+          "package_name": "com.learning.todoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840395161201-207n2m9joup0tdqosh0nt61jmfvnd1nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgSx7nWJxFPGGiow_AjOs3YJTfzCjDOSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840395161201-207n2m9joup0tdqosh0nt61jmfvnd1nm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840395161201-c2cja97psve2hc48pbn1rbe7c3aq5dv3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.asoham60.todoapp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
