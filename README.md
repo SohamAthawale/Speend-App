@@ -36,6 +36,9 @@ A simple and intuitive budgeting app developed using Flutter for iOS and Android
 Contributions are always welcome! Please follow these steps to contribute:
 
 Fork the repository
+
 Create a new branch
+
 Make your changes
+
 Submit a pull request
