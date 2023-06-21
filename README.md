@@ -2,7 +2,7 @@
 
 A simple and intuitive budgeting app developed using Flutter for iOS and Android.
 
-![App Screenshot](assets/images/OpenView3.jpg)
+![Alt text](https://ibb.co/2yDSkhH)
 
 ## Features
 
