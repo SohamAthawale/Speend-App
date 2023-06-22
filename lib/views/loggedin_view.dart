@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:speend/data/expense_data.dart';
+import 'package:speend/models/expense_item.dart';
 import 'package:speend/views/account_view.dart';
 import 'package:speend/views/login_view.dart';
 import 'package:speend/views/profile_view.dart';
@@ -14,6 +17,47 @@ class LoggedinView extends StatefulWidget {
 }
 
 class _LoggedinViewState extends State<LoggedinView> {
+  final newExpensename = TextEditingController();
+  final newExpenseammount = TextEditingController();
+  void addNewExpense() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Add expense'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: newExpensename,
+            ),
+            TextField(
+              controller: newExpenseammount,
+            )
+          ],
+        ),
+        actions: [
+          MaterialButton(
+            onPressed: save,
+            child: Text('Save'),
+          ),
+          MaterialButton(
+            onPressed: cancel,
+            child: Text('Cancel'),
+          )
+        ],
+      ),
+    );
+  }
+
+  void save() {
+    Expenseitems newExpense = Expenseitems(
+        Name: newExpensename.text,
+        Ammount: newExpenseammount.text,
+        dateTime: DateTime.now());
+    Provider.of<ExpenseData>(context, listen: false).addNewExpense(newExpense);
+  }
+
+  void cancel() {}
   int _selectedIndex = 0;
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +189,7 @@ class _LoggedinViewState extends State<LoggedinView> {
                         shape: CircleBorder(),
                         padding: EdgeInsets.all(10),
                       )),
-                      onPressed: () async {},
+                      onPressed: addNewExpense,
                       child: Icon(
                         Icons.add,
                         color: Color.fromARGB(255, 254, 254, 254),
@@ -154,32 +198,6 @@ class _LoggedinViewState extends State<LoggedinView> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  height: 175,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 121, 88, 115),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          'Hii',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
-                            color: Color.fromARGB(255, 254, 254, 254),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),

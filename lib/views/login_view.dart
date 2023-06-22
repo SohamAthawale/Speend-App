@@ -245,7 +245,7 @@ class _LoginViewState extends State<LoginView> {
                                       context: context,
                                       builder: (context) {
                                         return Stack(children: [
-                                          AlertDialog.adaptive(
+                                          AlertDialog(
                                             title: Text('Wrong password'),
                                             actions: [
                                               TextButton(
@@ -263,7 +263,7 @@ class _LoginViewState extends State<LoginView> {
                                       context: context,
                                       builder: (context) {
                                         return Stack(children: [
-                                          AlertDialog.adaptive(
+                                          AlertDialog(
                                             title: Text('Wrong password'),
                                             actions: [
                                               TextButton(
