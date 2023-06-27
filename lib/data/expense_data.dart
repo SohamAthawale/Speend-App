@@ -45,7 +45,7 @@ class ExpenseData extends ChangeNotifier {
     DateTime today = DateTime.now();
 
     for (int i = 0; i < 7; i++) {
-      if (getDayname(today.subtract(Duration(days: i))) == 'Sun') {
+      if (getDayname(today.subtract(Duration(days: i))) == 'Mon') {
         startofWeek = today.subtract(Duration(days: i));
       }
     }
@@ -62,6 +62,8 @@ class ExpenseData extends ChangeNotifier {
         double currentAmmount = dailyexpense[date]!;
         currentAmmount += ammount;
         dailyexpense[date] = currentAmmount;
+      } else {
+        dailyexpense.addAll({date: ammount});
       }
     }
     return dailyexpense;

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:speend/data/expense_data.dart';
 import 'package:speend/models/expense_item.dart';
 import 'package:speend/views/account_view.dart';
+import 'package:speend/views/expense_summary.dart';
 import 'package:speend/views/login_view.dart';
 import 'package:speend/views/profile_view.dart';
 import 'package:speend/views/setting_view.dart';
@@ -56,10 +57,12 @@ class _LoggedinViewState extends State<LoggedinView> {
         dateTime: DateTime.now());
     Provider.of<ExpenseData>(context, listen: false).addNewExpense(newExpense);
     Navigator.pop(context);
+    clear();
   }
 
   void cancel() {
     Navigator.pop(context);
+    clear();
   }
 
   void clear() {
@@ -187,32 +190,41 @@ class _LoggedinViewState extends State<LoggedinView> {
                   color: const Color.fromARGB(255, 18, 18, 18),
                   child: Stack(
                     children: [
-                      ListView.builder(
-                        itemCount: value.getallExpenseList().length,
-                        itemBuilder: (context, index) => ListTile(
-                          textColor: Colors.white,
-                          title: Text(value.getallExpenseList()[index].Name),
-                          subtitle: Text(value
-                                  .getallExpenseList()[index]
-                                  .dateTime
-                                  .day
-                                  .toString() +
-                              ' / ' +
-                              value
-                                  .getallExpenseList()[index]
-                                  .dateTime
-                                  .month
-                                  .toString() +
-                              ' / ' +
-                              value
-                                  .getallExpenseList()[index]
-                                  .dateTime
-                                  .year
-                                  .toString()),
-                          trailing:
-                              Text(value.getallExpenseList()[index].Ammount),
+                      ListView(children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0, bottom: 0),
+                          child: ExpenseSummary(
+                              startoftheweek: value.startofWeekDate()),
                         ),
-                      ),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: value.getallExpenseList().length,
+                          itemBuilder: (context, index) => ListTile(
+                            textColor: Colors.white,
+                            title: Text(value.getallExpenseList()[index].Name),
+                            subtitle: Text(value
+                                    .getallExpenseList()[index]
+                                    .dateTime
+                                    .day
+                                    .toString() +
+                                ' / ' +
+                                value
+                                    .getallExpenseList()[index]
+                                    .dateTime
+                                    .month
+                                    .toString() +
+                                ' / ' +
+                                value
+                                    .getallExpenseList()[index]
+                                    .dateTime
+                                    .year
+                                    .toString()),
+                            trailing: Text('₹ ' +
+                                value.getallExpenseList()[index].Ammount),
+                          ),
+                        ),
+                      ]),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Container(

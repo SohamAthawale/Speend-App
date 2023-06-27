@@ -8,6 +8,6 @@ String convertDatetostring(DateTime dateTime) {
   if (day.length == '1') {
     day = '0' + day;
   }
-  String ddmmyyyy = day + '/' + month + '/' + year;
+  String ddmmyyyy = day + month + year;
   return ddmmyyyy;
 }
