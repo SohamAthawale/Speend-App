@@ -10,17 +10,20 @@ void main() async {
   await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
+    ChangeNotifierProvider(
+      create: (context) => ExpenseData(),
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+          useMaterial3: true,
+        ),
+        routes: {
+          '/loogedin': (context) => const LoggedinView(),
+        },
+        home: MyHomePage(),
       ),
-      routes: {
-        '/loogedin': (context) => const LoggedinView(),
-      },
-      home: MyHomePage(),
     ),
   );
 }
@@ -61,40 +64,37 @@ class open_View extends StatefulWidget {
 class _open_ViewState extends State<open_View> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ExpenseData(),
-      builder: (context, child) => Scaffold(
-        backgroundColor: const Color.fromARGB(42, 0, 33, 248),
-        body: Stack(
-          children: [
-            const FractionallySizedBox(
-              heightFactor: 1,
-              widthFactor: 1,
-              child: Image(
-                image: AssetImage('assets/images/Splashpage.png'),
-                fit: BoxFit.cover,
-              ),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(42, 0, 33, 248),
+      body: Stack(
+        children: [
+          const FractionallySizedBox(
+            heightFactor: 1,
+            widthFactor: 1,
+            child: Image(
+              image: AssetImage('assets/images/Splashpage.png'),
+              fit: BoxFit.cover,
             ),
-            Positioned(
-              bottom: 30,
-              left: 40,
-              right: 40,
-              child: ElevatedButton(
-                onPressed: () async {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const RegisterView()));
-                },
-                style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(
-                        const Color.fromARGB(255, 75, 66, 79))),
-                child: const Text('Get Started'),
-              ),
+          ),
+          Positioned(
+            bottom: 30,
+            left: 40,
+            right: 40,
+            child: ElevatedButton(
+              onPressed: () async {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterView()));
+              },
+              style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 75, 66, 79))),
+              child: const Text('Get Started'),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
